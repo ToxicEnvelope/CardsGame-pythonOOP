@@ -1,18 +1,5 @@
-from Player import *
-from Enemy import *
-from Deck import *
-from Card import *
+from Game import *
 
-
-
-
-if __name__ == '__main__':
-
-	p = Player("test")
-	e = Enemy()
-	Deck()
-	p.drawACard()
-	Deck.removeCard()
-	e.drawACard()
-	Deck.removeCard()
-	
+if __name__ == "__main__":
+	game = Game("Test", "PC")
+	game.runGame()

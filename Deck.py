@@ -18,9 +18,25 @@ class Deck:
 			i += 1
 
 	@classmethod
+	def isEmpty(cls):
+		if len(cls._cardsInDeck) == 0:
+			return True
+		return False
+
+	@classmethod
+	def drawACard(cls):
+		if not cls.isEmpty():
+			self.card = cls._cardsInDeck[0]
+			cls.removeCard()
+			return self.card
+			#print "\n{} cards left in deck\n".format( str( len(cls._cardsInDeck)) )
+		else:
+			return False
+
+	@classmethod
 	def removeCard(cls):
-		cls._cardsInDeck.pop(0)
-		print "\n{} cards in deck\n".format( str(len( cls._cardsInDeck )) )
+		cls._cardsInDeck.slice(1)
+		#print "\n{} cards in deck\n".format( str(len( cls._cardsInDeck )) )
 
 
 

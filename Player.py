@@ -7,6 +7,7 @@ class Player:
 
 	def __init__(self, name):
 	    self.name = name
+	    self.state = 1
 	    self.health = 20
 
 	def isAlive(self):
@@ -17,8 +18,22 @@ class Player:
 				                        str( self.health ) )
 	
 	@classmethod
-	def drawACard(cls):
+	def getCardFromDeck(cls):
 		if cls._cardsInHand == None:
-			if len(Deck._cardsInDeck) > 0:
-				cls._cardsInHand = Deck._cardsInDeck[0]
-				print "\nPlayer drew a card from deck\nCARD INFO:\n{}".format( str( cls._cardsInHand.__dict__ ) )
+			cls._cardsInHand = Deck.drawACard()
+			if cls._cardsInHand == None:
+				return False
+			return True
+
+	@classmethod
+	def reduceLife(cls): 
+		if cls.isActive() == False:
+			return False
+		cls.health -= 1
+		return True
+
+	@classmethod
+	def isActive(cls):
+		if cls.state == 0:
+			return True
+		return False
