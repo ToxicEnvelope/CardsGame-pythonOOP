@@ -17,4 +17,11 @@ class Deck:
 			Deck._cardsInDeck.append(self.cardObject)
 			i += 1
 
+	@classmethod
+	def removeCard(cls):
+		cls._cardsInDeck.pop(0)
+		print "\n{} cards in deck\n".format( str(len( cls._cardsInDeck )) )
+
+
+
 	

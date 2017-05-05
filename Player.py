@@ -1,12 +1,13 @@
+from Deck import *
 
 
 class Player:
     
-    _cardInHand = 0
+	_cardsInHand = None
 
 	def __init__(self, name):
-		self.name = name
-		self.health = 20
+	    self.name = name
+	    self.health = 20
 
 	def isAlive(self):
 		if self.health <= 0 :
@@ -14,5 +15,10 @@ class Player:
 		else:
 			print "{} got {} health".format( self.name, 
 				                        str( self.health ) )
-	def drawACard(self):
-		
+	
+	@classmethod
+	def drawACard(cls):
+		if cls._cardsInHand == None:
+			if len(Deck._cardsInDeck) > 0:
+				cls._cardsInHand = Deck._cardsInDeck[0]
+				print "\nPlayer drew a card from deck\nCARD INFO:\n{}".format( str( cls._cardsInHand.__dict__ ) )

@@ -1,10 +1,18 @@
-from Card import *
-from Deck import *
 from Player import *
+from Enemy import *
+from Deck import *
+from Card import *
+
+
+
 
 if __name__ == '__main__':
-	
-	stdin = raw_input("Enter a name for player 1: ")
+
+	p = Player("test")
+	e = Enemy()
 	Deck()
-	p1 = Player(stdin)
-	p1.isAlive()
+	p.drawACard()
+	Deck.removeCard()
+	e.drawACard()
+	Deck.removeCard()
+	
